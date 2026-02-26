@@ -1,19 +1,12 @@
 
 <form class="ui form container" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h3>Create an Account</h3>
-  <div class="field">
-    <label>Username</label>
-    <input type="text" formControlName="username" placeholder="Please Enter Username">
-  </div>
-  <div class="field">
-    <label>Password</label>
-    <input type="password" formControlName="password" placeholder="Please Enter Password">
-  </div>
-  <div class="field">
-    <label>Confirm Password</label>
-    <input type="password" formControlName="passwordConfirmation" placeholder="Please Enter Confirm Password">
-  </div>
-  <button class="ui button" type="submit"> Create Account</button>
+
+  <app-input [control]="f?.username" label="username" placeholder="Please Enter Username"></app-input>
+  <app-input [control]="f?.password" label="password" type="password" placeholder="Please Enter Password"></app-input>
+  <app-input [control]="f?.passwordConfirmation" label="passwordConfirmation" type="password" placeholder="Please Confirm Password"></app-input>
+
+  <button class="ui button green" style="margin-top: 5px;" type="submit"> Create Account</button>
 </form>
 
 {{form.errors | json}}

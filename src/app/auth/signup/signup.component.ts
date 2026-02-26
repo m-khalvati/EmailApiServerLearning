@@ -19,6 +19,10 @@ export class SignupComponent implements OnInit {
 
   constructor(private matchPassword : MatchPasswordService) { }
 
+  get f(){
+    return this.form.controls;
+  }
+
   onSubmit(){
     console.log(this.form.value);
   }
