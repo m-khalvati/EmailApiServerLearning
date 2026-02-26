@@ -1,6 +1,18 @@
-<h3>Create an Account</h3>
-<form [formGroup]="form" >
-    <input type="text" formControlName="username" placeholder="Username">
-    <input type="password" formControlName="password" placeholder="Password">
-    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password">
+
+<form class="ui form container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>Create an Account</h3>
+  <div class="field">
+    <label>Username</label>
+    <input type="text" formControlName="username" placeholder="Please Enter Username">
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" formControlName="password" placeholder="Please Enter Password">
+  </div>
+  <div class="field">
+    <label>Confirm Password</label>
+    <input type="password" formControlName="passwordConfirmation" placeholder="Please Enter Confirm Password">
+  </div>
+  <button class="ui button" type="submit"> Create Account</button>
 </form>
+
