@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/_services/auth.service';
 import { MatchPasswordService } from 'src/app/_validators/match-password.service';
 import { UniqueUsernameService } from 'src/app/_validators/unique-username.service';
 
@@ -18,13 +19,29 @@ export class SignupComponent implements OnInit {
     validators : [this.matchPassword.validate]
   });
 
-  constructor(private matchPassword : MatchPasswordService, private uniqueUsername : UniqueUsernameService) { }
+  constructor(private matchPassword : MatchPasswordService,
+     private uniqueUsername : UniqueUsernameService,
+     private authService : AuthService) { }
 
   get f(){
     return this.form;
   }
 
   onSubmit(){
+    if(this.form.invalid){
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.authService.signup(this.form.value).subscribe(
+      (response) => {
+      console.log(response);
+    }, 
+    (error) => {
+      if(error.status == 0)
+        this.form.setErrors({noConnection : true});
+      else
+        this.form.setErrors({unknownError : true});
+    })
   }
 
   showErrorPasswordDontMatch(){

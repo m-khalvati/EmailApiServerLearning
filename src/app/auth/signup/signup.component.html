@@ -8,9 +8,13 @@
 
   <ng-container *ngIf="showErrorPasswordDontMatch()">
     <div class="ui pointing red basic label" style="margin-bottom: 5px;" *ngIf="form?.hasError('passwordDontMatch')">Please enter the same password</div>
+    <div class="ui pointing red basic label" style="margin-bottom: 5px;" *ngIf="form?.hasError('noConnection')">Please check your network</div>
+    <div class="ui pointing red basic label" style="margin-bottom: 5px;" *ngIf="form?.hasError('unknownError')">unknown Error</div>
+
+
   </ng-container>
 
-  <button class="ui button green" style="margin-top: 5px; display: block;" type="submit"> Create Account</button>
+  <button [disabled]="form.invalid" class="ui button green" style="margin-top: 5px; display: block;" type="submit"> Create Account</button>
 </form>
 
 {{form.controls?.username?.errors | json}}
