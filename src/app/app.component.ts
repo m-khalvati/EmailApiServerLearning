@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'EmailApiServerLearning';
   constructor(private authService : AuthService){
     this.authService.checkAuth().subscribe((response) => {
-      console.log(response);
+      //console.log(response);
     });
   }
 }
