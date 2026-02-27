@@ -6,10 +6,11 @@
   <app-input [control]="f?.get('password')" label="password" type="password" placeholder="Please Enter Password"></app-input>
   <app-input [control]="f?.get('passwordConfirmation')" label="passwordConfirmation" type="password" placeholder="Please Confirm Password"></app-input>
 
-  <div class="ui pointing red basic label" *ngIf="form?.hasError('passwordDontMatch')">Please enter the same password
-  </div>
+  <ng-container *ngIf="showErrorPasswordDontMatch()">
+    <div class="ui pointing red basic label" style="margin-bottom: 5px;" *ngIf="form?.hasError('passwordDontMatch')">Please enter the same password</div>
+  </ng-container>
 
-  <button class="ui button green" style="margin-top: 5px;" type="submit"> Create Account</button>
+  <button class="ui button green" style="margin-top: 5px; display: block;" type="submit"> Create Account</button>
 </form>
 
 {{form.controls?.username?.errors | json}}

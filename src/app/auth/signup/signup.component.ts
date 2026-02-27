@@ -27,6 +27,14 @@ export class SignupComponent implements OnInit {
   onSubmit(){
   }
 
+  showErrorPasswordDontMatch(){
+    return this.form.controls.password.dirty &&
+    this.form.controls.password.touched &&
+    this.form.controls.passwordConfirmation.dirty &&
+    this.form.controls.passwordConfirmation.touched 
+
+  }
+
   ngOnInit(): void {
   }
 
