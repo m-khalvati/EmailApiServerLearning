@@ -21,11 +21,10 @@ export class SignupComponent implements OnInit {
   constructor(private matchPassword : MatchPasswordService, private uniqueUsername : UniqueUsernameService) { }
 
   get f(){
-    return this.form.controls;
+    return this.form;
   }
 
   onSubmit(){
-
   }
 
   ngOnInit(): void {

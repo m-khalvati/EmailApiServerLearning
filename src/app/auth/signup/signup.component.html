@@ -2,9 +2,12 @@
 <form class="ui form container" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h3>Create an Account</h3>
 
-  <app-input [control]="f?.username" label="username" placeholder="Please Enter Username"></app-input>
-  <app-input [control]="f?.password" label="password" type="password" placeholder="Please Enter Password"></app-input>
-  <app-input [control]="f?.passwordConfirmation" label="passwordConfirmation" type="password" placeholder="Please Confirm Password"></app-input>
+  <app-input [control]="f?.get('username')" label="username" placeholder="Please Enter Username"></app-input>
+  <app-input [control]="f?.get('password')" label="password" type="password" placeholder="Please Enter Password"></app-input>
+  <app-input [control]="f?.get('passwordConfirmation')" label="passwordConfirmation" type="password" placeholder="Please Confirm Password"></app-input>
+
+  <div class="ui pointing red basic label" *ngIf="form?.hasError('passwordDontMatch')">Please enter the same password
+  </div>
 
   <button class="ui button green" style="margin-top: 5px;" type="submit"> Create Account</button>
 </form>

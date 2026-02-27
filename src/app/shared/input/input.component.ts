@@ -17,5 +17,13 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  showErrors() {
+    if (!this.control) {
+      return false;
+    }
+    const {errors, dirty, touched} = this.control;
+    
+    return errors && dirty && touched;
+  }
 
 }
