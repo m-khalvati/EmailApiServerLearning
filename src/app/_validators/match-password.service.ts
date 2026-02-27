@@ -9,7 +9,6 @@ export class MatchPasswordService implements Validator{
 
   constructor() { }
   validate(control: AbstractControl): ValidationErrors | null {
-    console.log(control);
     const { password, passwordConfirmation} = control.value;
     return password === passwordConfirmation ? null : { passwordDontMatch: true };
   }

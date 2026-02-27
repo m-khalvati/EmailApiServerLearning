@@ -11,7 +11,7 @@ import { UniqueUsernameService } from 'src/app/_validators/unique-username.servi
 })
 export class SignupComponent implements OnInit {
   form = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)], [this.uniqueUsername.validate.bind(this)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)], [this.uniqueUsername.validate.bind(this.uniqueUsername)]),
     password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
     passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
   }, {
@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.form.value);
+
   }
 
   ngOnInit(): void {

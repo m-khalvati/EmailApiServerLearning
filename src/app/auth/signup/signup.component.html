@@ -9,4 +9,4 @@
   <button class="ui button green" style="margin-top: 5px;" type="submit"> Create Account</button>
 </form>
 
-{{form.errors | json}}
+{{form.controls?.username?.errors | json}}
