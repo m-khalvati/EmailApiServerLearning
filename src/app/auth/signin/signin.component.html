@@ -1,1 +1,16 @@
-<p>signin works!</p>
+
+<form class="ui form container mt-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>Login to Account</h3>
+
+  <app-input [control]="f?.get('username')" label="username" placeholder="Please Enter Username"></app-input>
+  <app-input [control]="f?.get('password')" label="password" type="password" placeholder="Please Enter Password"></app-input>
+
+  <ng-container *ngIf="showErrorPasswordDontMatch()">
+    <div class="ui pointing red basic label" style="margin-bottom: 5px;" *ngIf="form?.hasError('noConnection')">Please check your network</div>
+    <div class="ui pointing red basic label" style="margin-bottom: 5px;" *ngIf="form?.hasError('credential')">Username or Password is Incorrect</div>
+
+
+  </ng-container>
+
+  <button [disabled]="form.invalid" class="ui button green" style="margin-top: 5px; display: block;" type="submit"> Login</button>
+</form>
